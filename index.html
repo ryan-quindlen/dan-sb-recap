@@ -689,6 +689,36 @@
     display: inline-block;
   }
 
+  /* ─── LIGHTBOX ─── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+
+  .carousel-slide { cursor: zoom-in; }
+
   /* ─── RESPONSIVE (just in case) ─── */
   @media (max-width: 768px) {
     .stat-strip { grid-template-columns: repeat(2, 1fr); }
@@ -1007,7 +1037,32 @@
 
 </div>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Expanded view">
+</div>
+
 <script>
+// ── LIGHTBOX ──
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.querySelectorAll('.carousel-slide').forEach(slide => {
+  slide.addEventListener('click', () => {
+    const img = slide.querySelector('img');
+    if (img) openLightbox(img.src);
+  });
+});
+
 // ── CAROUSEL ──
 let currentSlide = 0;
 const totalSlides = 8;
