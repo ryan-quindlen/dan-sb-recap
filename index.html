@@ -724,24 +724,30 @@
 
   .carousel-slide { cursor: zoom-in; }
 
-  /* ─── COMMENTS STRIP ─── */
+  /* ─── COMMENTS MARQUEE ─── */
+  .comments-wrapper {
+    overflow: hidden;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-light);
+  }
+
   .comments-strip {
     display: flex;
     gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    width: max-content;
+    animation: marquee 60s linear infinite;
   }
 
-  .comments-strip::-webkit-scrollbar { height: 4px; }
-  .comments-strip::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
-  .comments-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-  .comments-strip::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+  .comments-strip:hover { animation-play-state: paused; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
   .comment-card {
     flex: 0 0 280px;
-    scroll-snap-align: start;
     border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--border);
@@ -853,28 +859,44 @@
         66,341 impressions &middot; Published Feb 4, 2026 &middot; Video
       </div>
     </div>
-  </div>
 
-  <!-- ═══ BEST COMMENTS ═══ -->
-  <div class="section animate-in" style="padding-top: 0;">
-    <div class="section-label">Comment Reel</div>
-    <div class="section-title" style="font-size: 20px; margin-bottom: 16px;">The people have spoken</div>
-    <div class="comments-strip">
-      <div class="comment-card"><img src="assets/comment-aydin.png" alt="Aydin Mirzaee comment"></div>
-      <div class="comment-card"><img src="assets/comment-cunningham.png" alt="Chris Cunningham comment"></div>
-      <div class="comment-card"><img src="assets/comment-claire-vo.png" alt="Claire Vo comment"></div>
-      <div class="comment-card"><img src="assets/comment-stella.png" alt="Stella Garber comment"></div>
-      <div class="comment-card"><img src="assets/comment-latesha.png" alt="Latesha Byrd comment"></div>
-      <div class="comment-card"><img src="assets/comment-brent.png" alt="Brent Beshore comment"></div>
-      <div class="comment-card"><img src="assets/comment-wade.png" alt="Wade Foster comment"></div>
-      <div class="comment-card"><img src="assets/comment-kelly.png" alt="Kelly Vaughn comment"></div>
-      <div class="comment-card"><img src="assets/comment-al.png" alt="Al Zapier comment"></div>
-      <div class="comment-card"><img src="assets/comment-hila.png" alt="Hila Bouzaglou comment"></div>
-      <div class="comment-card"><img src="assets/comment-bella.png" alt="Bella Rose Mortel comment"></div>
-      <div class="comment-card"><img src="assets/comment-sadie.png" alt="Sadie Hochfield comment"></div>
-      <div class="comment-card"><img src="assets/comment-joanne.png" alt="Joanne D comment"></div>
-      <div class="comment-card"><img src="assets/comment-jocelyne.png" alt="Jocelyne Mendez-Guzman comment"></div>
-      <div class="comment-card"><img src="assets/comment-nate.png" alt="Nate Olson comment"></div>
+    <!-- COMMENT REEL (inside Top Performer section) -->
+    <div class="comments-wrapper">
+      <div class="section-label">Comment Reel</div>
+      <div class="section-title" style="font-size: 20px; margin-bottom: 16px;">The people have spoken</div>
+      <div class="comments-strip">
+        <div class="comment-card"><img src="assets/comment-aydin.png" alt="Aydin Mirzaee comment"></div>
+        <div class="comment-card"><img src="assets/comment-cunningham.png" alt="Chris Cunningham comment"></div>
+        <div class="comment-card"><img src="assets/comment-claire-vo.png" alt="Claire Vo comment"></div>
+        <div class="comment-card"><img src="assets/comment-stella.png" alt="Stella Garber comment"></div>
+        <div class="comment-card"><img src="assets/comment-latesha.png" alt="Latesha Byrd comment"></div>
+        <div class="comment-card"><img src="assets/comment-brent.png" alt="Brent Beshore comment"></div>
+        <div class="comment-card"><img src="assets/comment-wade.png" alt="Wade Foster comment"></div>
+        <div class="comment-card"><img src="assets/comment-kelly.png" alt="Kelly Vaughn comment"></div>
+        <div class="comment-card"><img src="assets/comment-al.png" alt="Al Zapier comment"></div>
+        <div class="comment-card"><img src="assets/comment-hila.png" alt="Hila Bouzaglou comment"></div>
+        <div class="comment-card"><img src="assets/comment-bella.png" alt="Bella Rose Mortel comment"></div>
+        <div class="comment-card"><img src="assets/comment-sadie.png" alt="Sadie Hochfield comment"></div>
+        <div class="comment-card"><img src="assets/comment-joanne.png" alt="Joanne D comment"></div>
+        <div class="comment-card"><img src="assets/comment-jocelyne.png" alt="Jocelyne Mendez-Guzman comment"></div>
+        <div class="comment-card"><img src="assets/comment-nate.png" alt="Nate Olson comment"></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="comment-card"><img src="assets/comment-aydin.png" alt="Aydin Mirzaee comment"></div>
+        <div class="comment-card"><img src="assets/comment-cunningham.png" alt="Chris Cunningham comment"></div>
+        <div class="comment-card"><img src="assets/comment-claire-vo.png" alt="Claire Vo comment"></div>
+        <div class="comment-card"><img src="assets/comment-stella.png" alt="Stella Garber comment"></div>
+        <div class="comment-card"><img src="assets/comment-latesha.png" alt="Latesha Byrd comment"></div>
+        <div class="comment-card"><img src="assets/comment-brent.png" alt="Brent Beshore comment"></div>
+        <div class="comment-card"><img src="assets/comment-wade.png" alt="Wade Foster comment"></div>
+        <div class="comment-card"><img src="assets/comment-kelly.png" alt="Kelly Vaughn comment"></div>
+        <div class="comment-card"><img src="assets/comment-al.png" alt="Al Zapier comment"></div>
+        <div class="comment-card"><img src="assets/comment-hila.png" alt="Hila Bouzaglou comment"></div>
+        <div class="comment-card"><img src="assets/comment-bella.png" alt="Bella Rose Mortel comment"></div>
+        <div class="comment-card"><img src="assets/comment-sadie.png" alt="Sadie Hochfield comment"></div>
+        <div class="comment-card"><img src="assets/comment-joanne.png" alt="Joanne D comment"></div>
+        <div class="comment-card"><img src="assets/comment-jocelyne.png" alt="Jocelyne Mendez-Guzman comment"></div>
+        <div class="comment-card"><img src="assets/comment-nate.png" alt="Nate Olson comment"></div>
+      </div>
     </div>
   </div>
 
