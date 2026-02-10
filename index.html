@@ -726,10 +726,35 @@
 
   /* ─── COMMENTS SCROLL ─── */
   .comments-wrapper {
-    overflow: hidden;
+    position: relative;
     margin-top: 32px;
     padding-top: 32px;
     border-top: 1px solid var(--border-light);
+  }
+
+  .comments-scroll-area {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Edge fade masks */
+  .comments-scroll-area::before,
+  .comments-scroll-area::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    z-index: 2;
+    pointer-events: none;
+  }
+    .comments-scroll-area::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg), transparent);
+  }
+  .comments-scroll-area::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg), transparent);
   }
 
   .comments-strip {
@@ -739,12 +764,12 @@
     padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: auto;
+    cursor: grab;
   }
 
-  .comments-strip::-webkit-scrollbar { height: 4px; }
-  .comments-strip::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
-  .comments-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-  .comments-strip::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+  .comments-strip.dragging { cursor: grabbing; }
+
+  .comments-strip::-webkit-scrollbar { height: 0; }
 
   .comment-card {
     flex: 0 0 280px;
@@ -753,17 +778,19 @@
     border: 1px solid var(--border);
     background: var(--bg-card);
     cursor: zoom-in;
-    transition: transform 0.15s, box-shadow 0.15s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    user-select: none;
   }
 
   .comment-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
 
   .comment-card img {
     width: 100%;
     display: block;
+    pointer-events: none;
   }
 
   /* ─── RESPONSIVE (just in case) ─── */
@@ -864,58 +891,8 @@
     <div class="comments-wrapper">
       <div class="section-label">Comment Reel</div>
       <div class="section-title" style="font-size: 20px; margin-bottom: 16px;">The people have spoken</div>
-      <div class="comments-strip">
-        <div class="comment-card"><img src="assets/comment-aydin.png" alt="Aydin Mirzaee comment"></div>
-        <div class="comment-card"><img src="assets/comment-richard-sharp.png" alt="Richard Sharp comment"></div>
-        <div class="comment-card"><img src="assets/comment-cunningham.png" alt="Chris Cunningham comment"></div>
-        <div class="comment-card"><img src="assets/comment-ruslan.png" alt="Ruslan Kosinov comment"></div>
-        <div class="comment-card"><img src="assets/comment-claire-vo.png" alt="Claire Vo comment"></div>
-        <div class="comment-card"><img src="assets/comment-stella.png" alt="Stella Garber comment"></div>
-        <div class="comment-card"><img src="assets/comment-latesha.png" alt="Latesha Byrd comment"></div>
-        <div class="comment-card"><img src="assets/comment-adnan.png" alt="Adnan Khan comment"></div>
-        <div class="comment-card"><img src="assets/comment-brian-schmidt.png" alt="Brian Schmidt comment"></div>
-        <div class="comment-card"><img src="assets/comment-carlos.png" alt="Carlos N. Escutia comment"></div>
-        <div class="comment-card"><img src="assets/comment-brent.png" alt="Brent Beshore comment"></div>
-        <div class="comment-card"><img src="assets/comment-wade.png" alt="Wade Foster comment"></div>
-        <div class="comment-card"><img src="assets/comment-kelly.png" alt="Kelly Vaughn comment"></div>
-        <div class="comment-card"><img src="assets/comment-al.png" alt="Al Zapier comment"></div>
-        <div class="comment-card"><img src="assets/comment-hila.png" alt="Hila Bouzaglou comment"></div>
-        <div class="comment-card"><img src="assets/comment-bella.png" alt="Bella Rose Mortel comment"></div>
-        <div class="comment-card"><img src="assets/comment-sadie.png" alt="Sadie Hochfield comment"></div>
-        <div class="comment-card"><img src="assets/comment-joanne.png" alt="Joanne D comment"></div>
-        <div class="comment-card"><img src="assets/comment-jocelyne.png" alt="Jocelyne Mendez-Guzman comment"></div>
-        <div class="comment-card"><img src="assets/comment-nate.png" alt="Nate Olson comment"></div>
-        <div class="comment-card"><img src="assets/comment-gabriel.png" alt="Gabriel Martinez comment"></div>
-        <div class="comment-card"><img src="assets/comment-mahesh.png" alt="Mahesh Kumar comment"></div>
-        <div class="comment-card"><img src="assets/comment-renato.png" alt="Renato Camilio comment"></div>
-        <div class="comment-card"><img src="assets/comment-grayson.png" alt="Grayson Cooper comment"></div>
-        <div class="comment-card"><img src="assets/comment-david-frahm.png" alt="David Frahm comment"></div>
-        <!-- duplicate set for seamless loop -->
-        <div class="comment-card"><img src="assets/comment-aydin.png" alt="Aydin Mirzaee comment"></div>
-        <div class="comment-card"><img src="assets/comment-richard-sharp.png" alt="Richard Sharp comment"></div>
-        <div class="comment-card"><img src="assets/comment-cunningham.png" alt="Chris Cunningham comment"></div>
-        <div class="comment-card"><img src="assets/comment-ruslan.png" alt="Ruslan Kosinov comment"></div>
-        <div class="comment-card"><img src="assets/comment-claire-vo.png" alt="Claire Vo comment"></div>
-        <div class="comment-card"><img src="assets/comment-stella.png" alt="Stella Garber comment"></div>
-        <div class="comment-card"><img src="assets/comment-latesha.png" alt="Latesha Byrd comment"></div>
-        <div class="comment-card"><img src="assets/comment-adnan.png" alt="Adnan Khan comment"></div>
-        <div class="comment-card"><img src="assets/comment-brian-schmidt.png" alt="Brian Schmidt comment"></div>
-        <div class="comment-card"><img src="assets/comment-carlos.png" alt="Carlos N. Escutia comment"></div>
-        <div class="comment-card"><img src="assets/comment-brent.png" alt="Brent Beshore comment"></div>
-        <div class="comment-card"><img src="assets/comment-wade.png" alt="Wade Foster comment"></div>
-        <div class="comment-card"><img src="assets/comment-kelly.png" alt="Kelly Vaughn comment"></div>
-        <div class="comment-card"><img src="assets/comment-al.png" alt="Al Zapier comment"></div>
-        <div class="comment-card"><img src="assets/comment-hila.png" alt="Hila Bouzaglou comment"></div>
-        <div class="comment-card"><img src="assets/comment-bella.png" alt="Bella Rose Mortel comment"></div>
-        <div class="comment-card"><img src="assets/comment-sadie.png" alt="Sadie Hochfield comment"></div>
-        <div class="comment-card"><img src="assets/comment-joanne.png" alt="Joanne D comment"></div>
-        <div class="comment-card"><img src="assets/comment-jocelyne.png" alt="Jocelyne Mendez-Guzman comment"></div>
-        <div class="comment-card"><img src="assets/comment-nate.png" alt="Nate Olson comment"></div>
-        <div class="comment-card"><img src="assets/comment-gabriel.png" alt="Gabriel Martinez comment"></div>
-        <div class="comment-card"><img src="assets/comment-mahesh.png" alt="Mahesh Kumar comment"></div>
-        <div class="comment-card"><img src="assets/comment-renato.png" alt="Renato Camilio comment"></div>
-        <div class="comment-card"><img src="assets/comment-grayson.png" alt="Grayson Cooper comment"></div>
-        <div class="comment-card"><img src="assets/comment-david-frahm.png" alt="David Frahm comment"></div>
+      <div class="comments-scroll-area">
+        <div class="comments-strip" id="commentStrip"></div>
       </div>
     </div>
   </div>
@@ -1179,33 +1156,95 @@ document.querySelectorAll('.follower-card').forEach(card => {
   });
 });
 
-document.querySelectorAll('.comment-card').forEach(card => {
-  card.addEventListener('click', () => {
+// ── INFINITE COMMENT REEL ──
+(function() {
+  const strip = document.getElementById('commentStrip');
+  if (!strip) return;
+
+  const comments = [
+    'comment-aydin.png', 'comment-richard-sharp.png', 'comment-cunningham.png',
+    'comment-ruslan.png', 'comment-claire-vo.png', 'comment-stella.png',
+    'comment-latesha.png', 'comment-adnan.png', 'comment-brian-schmidt.png',
+    'comment-carlos.png', 'comment-brent.png', 'comment-wade.png',
+    'comment-kelly.png', 'comment-al.png', 'comment-hila.png',
+    'comment-bella.png', 'comment-sadie.png', 'comment-joanne.png',
+    'comment-jocelyne.png', 'comment-nate.png', 'comment-gabriel.png',
+    'comment-mahesh.png', 'comment-renato.png', 'comment-grayson.png',
+    'comment-david-frahm.png'
+  ];
+
+  // Build 3 copies
+  function buildCards() {
+    let html = '';
+    for (let copy = 0; copy < 3; copy++) {
+      comments.forEach(src => {
+        html += '<div class="comment-card"><img src="assets/' + src + '" alt="comment"></div>';
+      });
+    }
+    strip.innerHTML = html;
+  }
+  buildCards();
+
+  // Start in the middle (copy 2 of 3)
+  const cardW = 280 + 12; // flex-basis + gap
+  const oneSetW = comments.length * cardW;
+  strip.scrollLeft = oneSetW;
+
+  // Seamless reposition: only when scroll stops (debounced)
+  let scrollTimer = null;
+  let isRepositioning = false;
+
+  strip.addEventListener('scroll', () => {
+    if (isRepositioning) return;
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      isRepositioning = true;
+      const pos = strip.scrollLeft;
+      if (pos >= oneSetW * 2) {
+        strip.scrollLeft = pos - oneSetW;
+      } else if (pos < oneSetW * 0.1) {
+        strip.scrollLeft = pos + oneSetW;
+      }
+      isRepositioning = false;
+    }, 80);
+  });
+
+  // Drag-to-scroll (desktop)
+  let isDragging = false;
+  let startX = 0;
+  let startScroll = 0;
+  let dragMoved = false;
+
+  strip.addEventListener('mousedown', e => {
+    isDragging = true;
+    dragMoved = false;
+    startX = e.pageX;
+    startScroll = strip.scrollLeft;
+    strip.classList.add('dragging');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 3) dragMoved = true;
+    strip.scrollLeft = startScroll - dx;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    strip.classList.remove('dragging');
+  });
+
+  // Lightbox on click (only if not dragged)
+  strip.addEventListener('click', e => {
+    if (dragMoved) return;
+    const card = e.target.closest('.comment-card');
+    if (!card) return;
     const img = card.querySelector('img');
     if (img) openLightbox(img.src);
   });
-});
-
-// ── INFINITE SCROLL LOOP ──
-(function() {
-  const strip = document.querySelector('.comments-strip');
-  if (!strip) return;
-  let ticking = false;
-  strip.addEventListener('scroll', () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const half = strip.scrollWidth / 2;
-      if (strip.scrollLeft >= half) {
-        strip.scrollLeft -= half;
-      } else if (strip.scrollLeft <= 0) {
-        strip.scrollLeft += half;
-      }
-      ticking = false;
-    });
-  });
-  // Start at a small offset so backward scroll works immediately
-  strip.scrollLeft = 1;
 })();
 
 // ── CAROUSEL ──
