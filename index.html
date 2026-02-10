@@ -293,11 +293,16 @@
   .carousel-slide {
     min-width: 100%;
     position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
   }
 
   .carousel-slide img {
     width: 100%;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    object-position: center 20%;
   }
 
   .carousel-overlay {
