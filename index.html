@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Bowl LX: Social Recap | Zapier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFDF7;
+    --bg-card: #FFFFFF;
+    --bg-subtle: #F9F7F3;
+    --border: #E8E4DE;
+    --border-light: #F0EDE8;
+    --text: #2D3436;
+    --text-secondary: #636E72;
+    --text-muted: #A0A4A8;
+    --orange: #FF4A00;
+    --orange-light: #FFF0E8;
+    --orange-dark: #E04300;
+    --green: #00B953;
+    --green-light: #E6F9EF;
+    --blue: #3B82F6;
+    --blue-light: #EFF6FF;
+    --purple: #8B5CF6;
+    --gold: #D4A017;
+    --gold-light: #FFF8E1;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .zapier-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--orange);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zapier-mark svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  .header-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .header-subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .sb-logo {
+    height: 72px;
+    object-fit: contain;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── STAT STRIP ─── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stat-card.highlight {
+    border-color: var(--orange);
+    background: var(--orange-light);
+  }
+
+  .stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+  }
+
+  .stat-card.highlight .stat-value {
+    color: var(--orange);
+  }
+
+  .stat-unit {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── HERO POST ─── */
+  .hero-post {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .hero-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+  }
+
+  .hero-author {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  .hero-role {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .hero-quote {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    padding-left: 20px;
+    border-left: 3px solid var(--orange);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .hero-stat {
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--bg-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero-stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-stat.accent .hero-stat-value {
+    color: var(--orange);
+  }
+
+  .hero-stat.accent {
+    background: var(--orange-light);
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── TWO COLUMN LAYOUT ─── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* ─── CAROUSEL ─── */
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    position: relative;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    display: block;
+  }
+
+  .carousel-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .carousel-caption {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 70%;
+  }
+
+  .carousel-metrics {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 0;
+    background: var(--bg-card);
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+  }
+
+  .carousel-dot.active {
+    background: var(--orange);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  .carousel-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 8px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s;
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  .carousel-arrow:hover {
+    transform: scale(1.1);
+  }
+
+  /* ─── TESTIMONIAL ─── */
+  .testimonial-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .testimonial-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+
+  .imessage-bubble {
+    background: #E9E9EB;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    padding: 14px 18px;
+    font-size: 17px;
+    color: #1C1C1E;
+    line-height: 1.4;
+    max-width: 340px;
+    position: relative;
+    box-shadow: var(--shadow);
+  }
+
+  .imessage-meta {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .imessage-meta strong {
+    color: var(--text-secondary);
+  }
+
+  .testimonial-context {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  /* ─── ICP SECTION ─── */
+  .icp-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .icp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .icp-big-number {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .icp-description {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .icp-description span {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .logo-wall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .logo-tag {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    transition: all 0.15s;
+    cursor: default;
+    position: relative;
+  }
+
+  .logo-tag:hover {
+    border-color: var(--orange);
+    color: var(--text);
+    box-shadow: var(--shadow);
+  }
+
+  .logo-tag.tier1 {
+    border-color: var(--orange);
+    color: var(--orange-dark);
+    background: var(--orange-light);
+    font-weight: 600;
+  }
+
+  .logo-tag.multi {
+    border-color: var(--purple);
+    color: var(--purple);
+    font-weight: 600;
+  }
+
+  .logo-tag .tip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .logo-tag .tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--text);
+  }
+
+  .logo-tag:hover .tip {
+    display: block;
+  }
+
+  .signal-list {
+    list-style: none;
+  }
+
+  .signal-item {
+    font-size: 14px;
+    color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+  }
+
+  .signal-item:last-child { border-bottom: none; }
+
+  .signal-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--orange-light);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .signal-bold {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ─── FOLLOWER BUMP ─── */
+  .follower-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .follower-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .follower-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .follower-card img {
+    width: 100%;
+    display: block;
+  }
+
+  .follower-card-info {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .follower-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .follower-bump {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .follower-context {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .footer-text strong {
+    color: var(--text-secondary);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* stagger children */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+  .stagger.visible > *:nth-child(2) { transition-delay: 0.06s; }
+  .stagger.visible > *:nth-child(3) { transition-delay: 0.12s; }
+  .stagger.visible > *:nth-child(4) { transition-delay: 0.18s; }
+  .stagger.visible > *:nth-child(5) { transition-delay: 0.24s; }
+
+  .stagger.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* count-up placeholder */
+  .count-up {
+    display: inline-block;
+  }
+
+  /* ─── RESPONSIVE (just in case) ─── */
+  @media (max-width: 768px) {
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .follower-grid { grid-template-columns: 1fr; }
+    .icp-highlights { grid-template-columns: 1fr; }
+    .sb-logo { height: 48px; }
+    .header-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="zapier-mark">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 13.5h-3.586l2.536 2.536-1.414 1.414L12.5 14.914V18.5h-2v-3.586l-2.536 2.536-1.414-1.414L9.086 13.5H5.5v-2h3.586L6.55 8.964l1.414-1.414L10.5 10.086V6.5h2v3.586l2.536-2.536 1.414 1.414L13.914 11.5H17.5v2z"/></svg>
+        </div>
+        <div>
+          <div class="header-title">Super Bowl LX: Social Recap</div>
+          <div class="header-subtitle">February 1 &ndash; 9, 2026</div>
+        </div>
+      </div>
+      <img src="assets/super-bowl-logo.png" class="sb-logo" alt="Super Bowl LX">
+    </div>
+  </div>
+
+  <!-- ═══ 1. AGGREGATE STATS ═══ -->
+  <div class="section">
+    <div class="section-label">Combined Performance</div>
+    <div class="section-title">All executive + brand accounts</div>
+    <div class="stat-strip stagger">
+      <div class="stat-card">
+        <div class="stat-value"><span class="count-up" data-target="146563" data-format="compact">0</span></div>
+        <div class="stat-unit">Impressions</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-value"><span class="count-up" data-target="2626">0</span></div>
+        <div class="stat-unit">Engagements</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value"><span class="count-up" data-target="986">0</span></div>
+        <div class="stat-unit">Link Clicks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value"><span class="count-up" data-target="1.82" data-suffix="%" data-decimals="2">0</span></div>
+        <div class="stat-unit">Engagement Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">$<span class="count-up" data-target="2936">0</span></div>
+        <div class="stat-unit">Brand EMV</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 2. WADE'S SUPER BOWL POST ═══ -->
+  <div class="section animate-in">
+    <div class="section-label">Top Performer</div>
+    <div class="section-title">Wade's Super Bowl teaser broke through</div>
+    <div class="hero-post">
+      <div class="hero-post-header">
+        <div class="hero-avatar">WF</div>
+        <div>
+          <div class="hero-author">Wade Foster</div>
+          <div class="hero-role">CEO, Zapier</div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        Zapier's first Super Bowl commercial. Airs Sunday at halftime. If you're in the Bay Area, don't miss it.
+      </div>
+      <div class="hero-stats stagger">
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span class="count-up" data-target="1038">0</span></div>
+          <div class="hero-stat-label">Likes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span class="count-up" data-target="251">0</span></div>
+          <div class="hero-stat-label">Comments</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value"><span class="count-up" data-target="68">0</span></div>
+          <div class="hero-stat-label">Reposts</div>
+        </div>
+        <div class="hero-stat accent">
+          <div class="hero-stat-value"><span class="count-up" data-target="4" data-suffix="%" data-decimals="0">0</span></div>
+          <div class="hero-stat-label">Engagement Rate</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:12px; font-size:13px; color:var(--text-muted);">
+        63,149 impressions &middot; Published Feb 4, 2026 &middot; Video
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 3. CAROUSEL + TESTIMONIAL ═══ -->
+  <div class="section animate-in">
+    <div class="section-label">Brand Social</div>
+    <div class="section-title">Zapier's Super Bowl memes hit the timeline</div>
+    <div class="two-col">
+      <!-- Carousel -->
+      <div>
+        <div class="carousel-wrapper" id="carousel">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="assets/al-headshot.png" alt="How we all woke up today">
+              <div class="carousel-overlay">
+                <div class="carousel-caption">How we all woke up today #SuperBowlLX</div>
+                <div class="carousel-metrics">
+                  <span>75 reactions</span>
+                  <span>6 comments</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/leo-pointing.png" alt="Zapier users seeing our ad">
+              <div class="carousel-overlay">
+                <div class="carousel-caption">Zapier users seeing our ad at halftime</div>
+                <div class="carousel-metrics">
+                  <span>110 reactions</span>
+                  <span>9 comments</span>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/casita.png" alt="Al in the Casita">
+              <div class="carousel-overlay">
+                <div class="carousel-caption">Al spotted in the Casita of Bad Bunny's halftime show</div>
+                <div class="carousel-metrics">
+                  <span>79 reactions</span>
+                  <span>7 comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-arrows">
+            <button class="carousel-arrow" onclick="moveCarousel(-1)">&#8249;</button>
+            <button class="carousel-arrow" onclick="moveCarousel(1)">&#8250;</button>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(2)"></button>
+        </div>
+        <div style="text-align:center; margin-top:4px; font-size:12px; color:var(--text-muted);">
+          5 brand Super Bowl posts &middot; 22,343 impressions &middot; 986 clicks
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="testimonial-block">
+        <div class="testimonial-label">Organic Buzz</div>
+        <div class="imessage-bubble">
+          Wow a Super Bowl ad. Things must be going well at Zapier!
+        </div>
+        <div class="imessage-meta">
+          Industry contact texting <strong>Austin Johnson</strong>
+        </div>
+        <div class="testimonial-context">
+          Unprompted. No outreach. Just someone in the industry seeing the ad and reaching out. This is the kind of organic signal you can't buy.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ 4. ICP / AUDIENCE ═══ -->
+  <div class="section animate-in">
+    <div class="section-label">Audience Quality</div>
+    <div class="section-title">The right people are watching</div>
+
+    <div class="icp-highlights stagger">
+      <div class="icp-card">
+        <div class="icp-big-number"><span class="count-up" data-target="29" data-suffix="%">0</span></div>
+        <div class="icp-description">Senior-level viewers<span>Directors, VPs, C-suite across all impressions</span></div>
+      </div>
+      <div class="icp-card">
+        <div class="icp-big-number"><span class="count-up" data-target="23" data-suffix="%">0</span></div>
+        <div class="icp-description">At companies with 1,000+ employees<span>Enterprise and mid-market accounts</span></div>
+      </div>
+    </div>
+
+    <div style="font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">
+      Enterprise logos that engaged with Wade's Super Bowl post
+    </div>
+    <div class="logo-wall">
+      <span class="logo-tag tier1">Dialpad<span class="tip">Morgan Torian &middot; Sr. Manager, Employee Experience</span></span>
+      <span class="logo-tag tier1">Sinch<span class="tip">Beatriz Redondo &middot; Director of Content Marketing</span></span>
+      <span class="logo-tag">OpenAI<span class="tip">Kevin Wolfson &middot; Account Director</span></span>
+      <span class="logo-tag">Salesforce<span class="tip">Radhika Maiya &middot; Product Manager</span></span>
+      <span class="logo-tag">HubSpot<span class="tip">Cody Holden &amp; Mary Jane F. &middot; Sr. Product Managers</span></span>
+      <span class="logo-tag">Databricks<span class="tip">Stefan W. &middot; Enterprise AE, Digital Native</span></span>
+      <span class="logo-tag">Atlassian<span class="tip">Paul Blackwell &middot; Head of Global Partner Marketing</span></span>
+      <span class="logo-tag">Intuit<span class="tip">Amogh Mundhekar &middot; Product Lead, TurboTax</span></span>
+      <span class="logo-tag">Dell<span class="tip">Aaron Welker &middot; Global Lead Gen Publisher Mgmt</span></span>
+      <span class="logo-tag">Accenture<span class="tip">David Chestnut &middot; Principal Dir, Agentic Reinvention</span></span>
+      <span class="logo-tag multi">Chargebee &times;4<span class="tip">4 engagers across GTM, marketing, sales, executive</span></span>
+      <span class="logo-tag">ZipRecruiter<span class="tip">Monika Shah &middot; CMO</span></span>
+      <span class="logo-tag">Checkr<span class="tip">Prachi Gore &middot; SVP Marketing</span></span>
+      <span class="logo-tag">Samsung<span class="tip">Rod Vernon &middot; B2B Computing Product Category Lead</span></span>
+      <span class="logo-tag">Morgan Stanley<span class="tip">JD Mateer &middot; Vice President</span></span>
+      <span class="logo-tag">a16z<span class="tip">Navid Zolfaghari &middot; Scout</span></span>
+      <span class="logo-tag">Airtable<span class="tip">Yvette Pan &middot; Head of FP&amp;A</span></span>
+      <span class="logo-tag">Webflow<span class="tip">Greg Kelly &middot; Director, Business Development</span></span>
+    </div>
+
+    <ul class="signal-list">
+      <li class="signal-item">
+        <div class="signal-icon">&#9889;</div>
+        <span><span class="signal-bold">Chargebee</span> engaged 4x across GTM, marketing, sales, and executive. Multi-thread buying signal.</span>
+      </li>
+      <li class="signal-item">
+        <div class="signal-icon">&#128081;</div>
+        <span><span class="signal-bold">ZipRecruiter CMO</span> and <span class="signal-bold">Checkr SVP Marketing</span> engaged. C-suite pipeline signal.</span>
+      </li>
+      <li class="signal-item">
+        <div class="signal-icon">&#127919;</div>
+        <span><span class="signal-bold">Accenture</span> Principal Director focused on "Agentic Reinvention." Directly in Zapier's AI orchestration lane.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ═══ 5. FOLLOWER BUMP ═══ -->
+  <div class="section animate-in">
+    <div class="section-label">The AL Effect</div>
+    <div class="section-title">Zapiens changed their profile pictures. Their followers noticed.</div>
+    <div class="follower-grid stagger">
+      <div class="follower-card">
+        <img src="assets/philip-followers.png" alt="Philip Lakin follower growth">
+        <div class="follower-card-info">
+          <span class="follower-name">Philip Lakin</span>
+          <span class="follower-bump">+300</span>
+        </div>
+      </div>
+      <div class="follower-card">
+        <img src="assets/kelly-followers.png" alt="Kelly Vaughn follower growth">
+        <div class="follower-card-info">
+          <span class="follower-name">Kelly Vaughn</span>
+          <span class="follower-bump">+90</span>
+        </div>
+      </div>
+      <div class="follower-card">
+        <img src="assets/andrew-followers.png" alt="Andrew Ckor follower growth">
+        <div class="follower-card-info">
+          <span class="follower-name">Andrew Ckor</span>
+          <span class="follower-bump">+80</span>
+        </div>
+      </div>
+    </div>
+    <div class="follower-context">
+      Zapiens changed their LinkedIn profile photos to AL and joined a coordinated takeover. <br>The result: organic follower growth across the company, not just the execs.
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer">
+    <div class="footer-text">
+      <strong>Zapier Social</strong> &middot; Prepared for Dan Slagen &middot; February 9, 2026 &middot; Data from Ordinal LinkedIn Analytics
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── CAROUSEL ──
+let currentSlide = 0;
+const totalSlides = 3;
+let autoplayInterval;
+
+function goToSlide(n) {
+  currentSlide = n;
+  document.getElementById('carouselTrack').style.transform = `translateX(-${n * 100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === n);
+  });
+  resetAutoplay();
+}
+
+function moveCarousel(dir) {
+  let next = currentSlide + dir;
+  if (next < 0) next = totalSlides - 1;
+  if (next >= totalSlides) next = 0;
+  goToSlide(next);
+}
+
+function startAutoplay() {
+  autoplayInterval = setInterval(() => moveCarousel(1), 4000);
+}
+
+function resetAutoplay() {
+  clearInterval(autoplayInterval);
+  startAutoplay();
+}
+
+startAutoplay();
+
+// ── COUNT-UP ANIMATION ──
+function animateCountUp(el) {
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const decimals = parseInt(el.dataset.decimals) || 0;
+  const format = el.dataset.format || '';
+  const duration = 1600;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // ease out cubic
+    const ease = 1 - Math.pow(1 - progress, 3);
+    let current = target * ease;
+
+    if (format === 'compact') {
+      if (current >= 1000) {
+        el.textContent = (current / 1000).toFixed(current >= 10000 ? 0 : 1) + 'K' + suffix;
+      } else {
+        el.textContent = Math.round(current) + suffix;
+      }
+    } else if (decimals > 0) {
+      el.textContent = current.toFixed(decimals) + suffix;
+    } else {
+      el.textContent = Math.round(current).toLocaleString() + suffix;
+    }
+
+    if (progress < 1) requestAnimationFrame(update);
+  }
+
+  requestAnimationFrame(update);
+}
+
+// ── INTERSECTION OBSERVER ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+
+      // trigger count-up for any counters inside
+      entry.target.querySelectorAll('.count-up:not(.counted)').forEach(el => {
+        el.classList.add('counted');
+        animateCountUp(el);
+      });
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+// observe all animated elements
+document.querySelectorAll('.animate-in, .stagger').forEach(el => observer.observe(el));
+
+// trigger first section immediately (already visible)
+setTimeout(() => {
+  document.querySelectorAll('.stagger').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      el.classList.add('visible');
+      el.querySelectorAll('.count-up:not(.counted)').forEach(c => {
+        c.classList.add('counted');
+        animateCountUp(c);
+      });
+    }
+  });
+}, 300);
+
+// ── SWIPE SUPPORT ──
+let touchStartX = 0;
+const carousel = document.getElementById('carousel');
+carousel.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+carousel.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) moveCarousel(diff > 0 ? 1 : -1);
+});
+</script>
+
+</body>
+</html>
