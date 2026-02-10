@@ -724,7 +724,7 @@
 
   .carousel-slide { cursor: zoom-in; }
 
-  /* ─── COMMENTS MARQUEE ─── */
+  /* ─── COMMENTS SCROLL ─── */
   .comments-wrapper {
     overflow: hidden;
     margin-top: 32px;
@@ -735,16 +735,16 @@
   .comments-strip {
     display: flex;
     gap: 12px;
-    width: max-content;
-    animation: marquee 90s linear infinite;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
   }
 
-  .comments-strip:hover { animation-play-state: paused; }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
+  .comments-strip::-webkit-scrollbar { height: 4px; }
+  .comments-strip::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
+  .comments-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .comments-strip::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
   .comment-card {
     flex: 0 0 280px;
@@ -1185,6 +1185,28 @@ document.querySelectorAll('.comment-card').forEach(card => {
     if (img) openLightbox(img.src);
   });
 });
+
+// ── INFINITE SCROLL LOOP ──
+(function() {
+  const strip = document.querySelector('.comments-strip');
+  if (!strip) return;
+  let ticking = false;
+  strip.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const half = strip.scrollWidth / 2;
+      if (strip.scrollLeft >= half) {
+        strip.scrollLeft -= half;
+      } else if (strip.scrollLeft <= 0) {
+        strip.scrollLeft += half;
+      }
+      ticking = false;
+    });
+  });
+  // Start at a small offset so backward scroll works immediately
+  strip.scrollLeft = 1;
+})();
 
 // ── CAROUSEL ──
 let currentSlide = 0;
