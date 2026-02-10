@@ -604,6 +604,7 @@
   .follower-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+    cursor: zoom-in;
   }
 
   .follower-card img {
@@ -1072,6 +1073,13 @@ document.addEventListener('keydown', e => {
 document.querySelectorAll('.carousel-slide').forEach(slide => {
   slide.addEventListener('click', () => {
     const img = slide.querySelector('img');
+    if (img) openLightbox(img.src);
+  });
+});
+
+document.querySelectorAll('.follower-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('img');
     if (img) openLightbox(img.src);
   });
 });
