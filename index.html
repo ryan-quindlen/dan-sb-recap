@@ -897,6 +897,16 @@
                 </div>
               </div>
             </div>
+            <div class="carousel-slide">
+              <img src="assets/dan-al-summit.png" alt="Dan Slagen meets AL at Summit">
+              <div class="carousel-overlay">
+                <div class="carousel-caption">Dan Slagen: "The star of Zapier's Super Bowl commercial made a special appearance"</div>
+                <div class="carousel-metrics">
+                  <span>107 reactions</span>
+                  <span>3 comments</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="carousel-arrows">
             <button class="carousel-arrow" onclick="moveCarousel(-1)">&#8249;</button>
@@ -909,6 +919,7 @@
           <button class="carousel-dot" onclick="goToSlide(2)"></button>
           <button class="carousel-dot" onclick="goToSlide(3)"></button>
           <button class="carousel-dot" onclick="goToSlide(4)"></button>
+          <button class="carousel-dot" onclick="goToSlide(5)"></button>
         </div>
         <div style="text-align:center; margin-top:4px; font-size:12px; color:var(--text-muted);">
           5 brand Super Bowl posts &middot; 22,343 impressions &middot; 986 clicks
@@ -975,7 +986,7 @@
 <script>
 // ── CAROUSEL ──
 let currentSlide = 0;
-const totalSlides = 5;
+const totalSlides = 6;
 let autoplayInterval;
 
 function goToSlide(n) {
